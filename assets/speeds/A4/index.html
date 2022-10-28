@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A4 - Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: #066;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    #container {
+      width: 500px;
+      height: 500px;
+      background-color: #fff;
+      overflow: hidden;
+      position: relative;
+
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+    }
+
+    #circle {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      background-color: #2d2fa7;
+      transition: left 0.5s linear, top 0.5s linear 0.5s;
+    }
+
+    .square {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    .sq1 {
+      background-color: #f00;
+    }
+
+    .sq2 {
+      background-color: #0f0;
+    }
+
+    .sq3 {
+      background-color: #00f;
+    }
+
+    .line {
+      border: 2px dotted orange;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+    }
+
+    .row .line {
+      height: 0px;
+      width: 100%;
+    }
+
+    .column {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      flex-flow: column;
+      align-self: flex-end;
+    }
+
+    .column .line {
+      height: 100%;
+      width: 0;
+      align-self: center;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="circle"></div>
+    <div class="row">
+      <div class="square sq1">1</div>
+      <div class="line"></div>
+      <div class="square sq2">2</div>
+    </div>
+    <div class="column">
+      <div class="line"></div>
+      <div class="square sq3">3</div>
+    </div>
+  </div>
+  <button id="start">Start Animation</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#start').addEventListener('click', (e) => {
+        e.preventDefault()
+        document.querySelector('#circle').classList.add('animated')
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <form action="http://las-459428/competitor1/index.php" method="post">
+        <input type="text" placeholder="prenom" name="prenom">
+        <input type="text" placeholder="nom" name="nom">
+        <input type="submit" value="envoyer">
+    </form>
+</head>
+<body>
+    <script>
+        fetch("http://las-459428/competitor1/index.php", {
+            body: JSON.stringify({
+                "prenom": "pierre",
+                "nom": "Charlier"
+            }),
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+    </script>
+</body>
+</html>
